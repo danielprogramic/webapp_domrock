@@ -1,19 +1,10 @@
 <template>
   <v-app light>
-    <v-navigation-drawer
-      fixed
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      v-model="drawer"
-      class="secondary" 
-      app
-    >
+  
+  
+    <v-navigation-drawer fixed :mini-variant="miniVariant" :clipped="clipped" v-model="drawer" class="secondary" app>
       <v-list class="primary">
-        <v-list-tile 
-          v-for="(item, i) in items"
-          :key="i"
-          value="true"
-        >
+        <v-list-tile v-for="(item, i) in items" :key="i" value="true">
           <v-list-tile-action>
             <v-icon light v-html="item.icon"></v-icon>
           </v-list-tile-action>
@@ -23,69 +14,73 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
+  
+  
     <v-toolbar dark class="primary" app>
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>web</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>remove</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" ></v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>menu</v-icon>
-      </v-btn>
+  
+      <!-- <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+            <v-btn icon @click.stop="miniVariant = !miniVariant">
+              <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
+            </v-btn>
+            <v-btn icon @click.stop="clipped = !clipped">
+              <v-icon>web</v-icon>
+            </v-btn>
+            <v-btn icon @click.stop="fixed = !fixed">
+              <v-icon>remove</v-icon>
+            </v-btn> -->
+      <v-layout row justify-space-between>
+        <v-flex xs2>
+          <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+        </v-flex>
+        <v-flex xs2>
+          <center>
+            <img src="/static/logo-domrock-nav.gif" alt="Dom Rock" />
+          </center>
+        </v-flex>
+        <v-flex xs2>
+          <v-spacer></v-spacer>
+          <div style="float:right;">
+            <v-btn icon @click.stop="rightDrawer = !rightDrawer">
+              <v-icon>menu</v-icon>
+            </v-btn>
+          </div>
+        </v-flex>
+      </v-layout>
+  
+  
+  
+  
+  
+  
+  
+  
+  
     </v-toolbar>
-    <v-content >
-      <v-container fluid >
+    <v-content>
+      <v-container fluid>
         <v-slide-y-transition mode="out-in">
-          <v-layout column align-center >
+          <v-layout column align-center>
             <img src="/static/logo-domrock.gif" alt="Vuetify.js" />
-            <blockquote  >
-
-                </br>
-                </br>
-              &#8220; “Se marcares ao largo um lampejo
-              De um farol a mostrar o caminho,
-              Saberá ser o nosso desejo
-              Que jamais tu navegues sozinho”.&#8221;
+            <blockquote>
+  
+              </br>
+              </br>
+              &#8220; “Se marcares ao largo um lampejo De um farol a mostrar o caminho, Saberá ser o nosso desejo Que jamais tu navegues sozinho”.&#8221;
               <footer>
                 <small>
-                  <em>&mdash;Estrofe II, canção do hidrógrafo, Marinha do Brasil</em>
-                </small>
+                      <em>&mdash;Estrofe II, canção do hidrógrafo, Marinha do Brasil</em>
+                    </small>
               </footer>
             </blockquote>
-
+  
           </v-layout>
         </v-slide-y-transition>
       </v-container>
     </v-content>
-    <v-navigation-drawer
-      temporary
-      fixed
-      :right="right"
-      v-model="rightDrawer"
-      app
-    >
-      <v-list >
+    <v-navigation-drawer temporary fixed :right="right" v-model="rightDrawer" app>
+      <v-list>
         <!-- <v-list-tile @click.native="right = !right"> -->
-          <v-list-tile >
+        <v-list-tile>
           <v-list-tile-action>
             <v-icon light>compare_arrows</v-icon>
           </v-list-tile-action>
@@ -100,8 +95,8 @@
 </template>
 
 <script>
-  export default {  
-    data () {
+  export default {
+    data() {
       return {
         clipped: false,
         drawer: false,
@@ -117,5 +112,4 @@
       }
     }
   }
-
 </script>
